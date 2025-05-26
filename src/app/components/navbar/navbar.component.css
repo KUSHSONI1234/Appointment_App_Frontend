@@ -1,0 +1,45 @@
+.nav-container{
+    /* background-color: black; */
+    color: black;
+    height: 80px;
+    padding: 0 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.center-nav .nav-links ul{
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.center-nav .nav-links ul li a{
+    color: black;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+
+.center-nav .nav-links button{
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 1px solid rgba(229, 226, 226, 0.909);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.right-nav button{
+    padding: 15px 30px;
+    background-color: #5F6FFF;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 9999px;
+    border: 0;
+    outline: 0;
+}
+.right-nav button a{
+  color: white;
+}

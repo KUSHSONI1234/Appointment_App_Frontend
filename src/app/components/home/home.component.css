@@ -1,0 +1,139 @@
+.nav-container{
+    /* background-color: black; */
+    color: black;
+    height: 80px;
+    padding: 0 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.center-nav .nav-links ul{
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.center-nav .nav-links ul li a{
+    color: black;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+
+.center-nav .nav-links button{
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 1px solid rgba(229, 226, 226, 0.909);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.right-nav button{
+    padding: 15px 30px;
+    background-color: #5F6FFF;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 9999px;
+    border: 0;
+    outline: 0;
+}
+.right-nav button a{
+  color: white;
+}
+
+.home-header{
+    max-width: 100%;
+    margin: 1.5rem 10% 0;
+    height: 500px;
+    background-color: #5F6FFF;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+    gap: 10px;
+    padding: 0 5%;
+    
+}
+
+.header-left h1{
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.header-right img{
+    width: 95%;
+    height: auto;
+    margin-top: 7rem;
+}
+
+.header-flex{
+    display: flex;
+    margin-top: 1rem;
+    align-items: center;
+    color: white;
+    gap: 15px;
+}
+.header-flex .right-flex p{
+    font-size: 14px;
+}
+
+.header-left button{
+    padding: 15px 30px;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 14px;
+    border-radius: 9999px;
+    border: 0;
+    outline: 0;
+    font-weight: 500;
+    transition: all 0.3s linear;
+}
+.header-left button:hover{
+    transform: scale(1.06);
+    color: black;
+
+}
+
+.home-speciality-section {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.home-speciality-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* allows responsive stacking on smaller screens */
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.speciality-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 120px;
+  transition: transform 0.3s ease;
+}
+
+.speciality-item:hover {
+  transform: translateY(-10px);
+}
+
+.speciality-item img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  /* background-color: #f5f5f5; */
+  padding: 15px;
+}
+
+.speciality-item p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
