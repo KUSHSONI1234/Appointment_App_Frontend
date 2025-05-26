@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { Route, Router, RouterLink } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -31,7 +32,7 @@ export class RegisterComponent implements AfterViewInit {
   showSuccess = false;
   errorMessage = '';
 
-  constructor(private http: HttpClient,private router:Router) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngAfterViewInit() {
     this.fullNameInput.nativeElement.focus();
@@ -50,14 +51,13 @@ export class RegisterComponent implements AfterViewInit {
     }
 
     this.http
-      .post('http://localhost:5052/api/auth/register', this.registerData)
-      .subscribe({
+      .post(`${environment.apiBaseUrl}/auth/register`, this.registerData).subscribe({
         next: (res: any) => {
           this.showAlert = false;
           this.showSuccess = true;
 
           console.log('Backend Response:', res);
-          this.router.navigateByUrl('/login')
+          this.router.navigateByUrl('/login');
 
           this.registerData = {
             fullName: '',
@@ -74,7 +74,7 @@ export class RegisterComponent implements AfterViewInit {
           this.showAlert = true;
 
           if (err.status === 400 && err.error && err.error.message) {
-            this.errorMessage = err.error.message; 
+            this.errorMessage = err.error.message;
           } else {
             this.errorMessage =
               'An unexpected error occurred. Please try again.';

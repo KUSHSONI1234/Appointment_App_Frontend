@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
+
 import {
   HttpClient,
   HttpErrorResponse,
   HttpClientModule,
 } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -52,7 +54,9 @@ export class LoginComponent implements AfterViewInit {
       return;
     }
 
-    const apiUrl = 'http://localhost:5052/api/auth/login';
+    // const apiUrl = 'http://localhost:5052/api/auth/login';
+    const apiUrl = `${environment.apiBaseUrl}/auth/login`;
+
 
     this.http.post(apiUrl, this.loginData).subscribe({
       next: (res: any) => {
