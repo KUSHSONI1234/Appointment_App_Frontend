@@ -1,45 +1,92 @@
-.nav-container{
-    /* background-color: black; */
-    color: black;
-    height: 80px;
-    padding: 0 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.nav-container {
+  /* background-color: black; */
+  color: black;
+  height: 80px;
+  padding: 0 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.center-nav .nav-links ul{
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
+.center-nav .nav-links ul {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
 }
 
-.center-nav .nav-links ul li a{
-    color: black;
-    font-weight: 600;
-    font-size: 16px;
+.center-nav .nav-links ul li a {
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
 }
 
-
-.center-nav .nav-links button{
-    padding: 5px 10px;
-    border-radius: 10px;
-    background-color: transparent;
-    border: 1px solid rgba(229, 226, 226, 0.909);
-    font-size: 16px;
-    font-weight: 600;
+.center-nav .nav-links button {
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: transparent;
+  border: 1px solid rgba(229, 226, 226, 0.909);
+  font-size: 16px;
+  font-weight: 600;
 }
 
-.right-nav button{
-    padding: 15px 30px;
-    background-color: #5F6FFF;
-    color: white;
-    font-weight: 600;
-    font-size: 16px;
-    border-radius: 9999px;
-    border: 0;
-    outline: 0;
-}
-.right-nav button a{
+.right-nav button {
+  padding: 15px 30px;
+  background-color: #5f6fff;
   color: white;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 9999px;
+  border: 0;
+  outline: 0;
+}
+.right-nav button a {
+  color: white;
+}
+
+.right-nav img {
+  width: 2rem;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  z-index: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+.dropdown-content.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+.dropdown-content a:hover {
+  color: black;
+  font-weight: 600;
 }

@@ -9,13 +9,32 @@
         <li><a href="">ALL DOCTORS</a></li>
         <li><a href="">ABOUT</a></li>
         <li><a href="">CONTACT</a></li>
-        <!-- <li><a href=""></a></li> -->
+
         <button>Admin Panel</button>
       </ul>
     </div>
   </div>
   <div class="right-nav">
-    <button style="cursor: pointer;"><a routerLink="/register">Create Account</a></button>
+    <button style="cursor: pointer" *ngIf="!isLoggedIn">
+      <a routerLink="/register">Create Account</a>
+    </button>
+
+    <div
+      class="profile-dropdown"
+      (mouseenter)="showDropdown = true"
+      (mouseleave)="showDropdown = false"
+    >
+      <img
+        src="images/assets_frontend/upload_area.png"
+        alt="Profile"
+        class="profile-img"
+      />
+      <div class="dropdown-content" [ngClass]="{ show: showDropdown }">
+        <a routerLink="/my-profile">My Profile</a>
+        <a routerLink="/appointments">My Appointments</a>
+        <a href="#" (click)="logout()">Logout</a>
+      </div>
+    </div>
   </div>
 </div>
 

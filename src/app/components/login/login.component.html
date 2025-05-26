@@ -1,1 +1,52 @@
-<p>login works!</p>
+<app-navbar></app-navbar>
+
+
+<div class="alert-wrapper">
+  <div *ngIf="showAlert" class="custom-alert">{{errorMessage}}</div>
+</div>
+
+<div class="alert-wrapper">
+  <div *ngIf="showSuccess" class="custom-alert success">
+    Login successful!
+  </div>
+</div>
+
+<div class="container mt-4">
+  <h2>Login</h2>
+  <p>Please log in to book appointment</p>
+
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+
+    <div class="form-group mb-3">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="loginData.email"
+        required
+        class="form-control"
+        #fullNameInput
+      />
+    </div>
+
+
+    <div class="form-group mb-3">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="loginData.password"
+        required
+        class="form-control"
+      />
+    </div>
+
+    <button type="submit" class="btn-submit">Login</button>
+
+    <p class="acc-login mt-3 text-center">
+      Don't have an account? <a routerLink="/register">Register here</a>
+    </p>
+  </form>
+</div>

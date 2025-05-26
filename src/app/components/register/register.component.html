@@ -1,8 +1,8 @@
-<!-- src/app/app.component.html -->
+
 <app-navbar></app-navbar>
 
 <div class="alert-wrapper">
-  <div *ngIf="showAlert" class="custom-alert">All fields are required!</div>
+  <div *ngIf="showAlert" class="custom-alert">{{errorMessage}}</div>
 </div>
 
 <div class="alert-wrapper">
@@ -11,17 +11,13 @@
   </div>
 </div>
 
-
-
 <div class="container mt-4">
   <h2>Create Account</h2>
   <p>Please sign up to book appointment</p>
 
-  <!-- Alert if fields are missing -->
 
   <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
-    <!-- Full Name -->
-    <!-- Full Name -->
+
     <div class="form-group mb-3">
       <label for="fullName">Full Name</label>
       <input
@@ -31,11 +27,11 @@
         [(ngModel)]="registerData.fullName"
         required
         class="form-control"
-        autofocus
+        #fullNameInput
       />
     </div>
 
-    <!-- Email -->
+
     <div class="form-group mb-3">
       <label for="email">Email</label>
       <input
@@ -48,7 +44,7 @@
       />
     </div>
 
-    <!-- Password -->
+
     <div class="form-group mb-3">
       <label for="password">Password</label>
       <input
@@ -61,7 +57,6 @@
       />
     </div>
 
-    <!-- Submit Button -->
     <button type="submit" class="btn btn-primary w-100">Create Account</button>
     <p class="acc-login mt-3 text-center">
       Already have an account? <a routerLink="/login">Login here</a>

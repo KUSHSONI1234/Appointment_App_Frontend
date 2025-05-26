@@ -1,8 +1,9 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { Route, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -10,14 +11,16 @@ import { NavbarComponent } from '../navbar/navbar.component';
   styleUrls: ['./register.component.css'],
   standalone: true,
   imports: [
-    CommonModule,
     FormsModule,
+    CommonModule,
     ReactiveFormsModule,
+    NavbarComponent,
     RouterLink,
-    NavbarComponent
-  ]
+  ],
 })
-export class RegisterComponent {
+export class RegisterComponent implements AfterViewInit {
+  @ViewChild('fullNameInput') fullNameInput!: ElementRef;
+
   registerData = {
     fullName: '',
     email: '',
@@ -26,6 +29,13 @@ export class RegisterComponent {
 
   showAlert = false;
   showSuccess = false;
+  errorMessage = '';
+
+  constructor(private http: HttpClient,private router:Router) {}
+
+  ngAfterViewInit() {
+    this.fullNameInput.nativeElement.focus();
+  }
 
   onSubmit() {
     const { fullName, email, password } = this.registerData;
@@ -33,30 +43,51 @@ export class RegisterComponent {
     if (!fullName.trim() || !email.trim() || !password.trim()) {
       this.showAlert = true;
       this.showSuccess = false;
+      this.errorMessage = 'Please fill in all fields.';
 
-      // Hide alert after 3 seconds
-      setTimeout(() => {
-        this.showAlert = false;
-      }, 3000);
+      this.autoHideAlert();
       return;
     }
 
-    // Success
-    this.showAlert = false;
-    this.showSuccess = true;
+    this.http
+      .post('http://localhost:5052/api/auth/register', this.registerData)
+      .subscribe({
+        next: (res: any) => {
+          this.showAlert = false;
+          this.showSuccess = true;
 
-    console.log('Form Submitted:', this.registerData);
+          console.log('Backend Response:', res);
+          this.router.navigateByUrl('/login')
 
-    // Optionally reset the form fields
-    this.registerData = {
-      fullName: '',
-      email: '',
-      password: '',
-    };
+          this.registerData = {
+            fullName: '',
+            email: '',
+            password: '',
+          };
 
-    // Hide success message after 3 seconds
+          setTimeout(() => {
+            this.showSuccess = false;
+          }, 3000);
+        },
+        error: (err) => {
+          this.showSuccess = false;
+          this.showAlert = true;
+
+          if (err.status === 400 && err.error && err.error.message) {
+            this.errorMessage = err.error.message; 
+          } else {
+            this.errorMessage =
+              'An unexpected error occurred. Please try again.';
+          }
+
+          this.autoHideAlert();
+        },
+      });
+  }
+
+  autoHideAlert() {
     setTimeout(() => {
-      this.showSuccess = false;
+      this.showAlert = false;
     }, 3000);
   }
 }
