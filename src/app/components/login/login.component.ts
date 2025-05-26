@@ -63,7 +63,7 @@ export class LoginComponent implements AfterViewInit {
 
         localStorage.setItem('token', res.token);
         this.router.navigate(['/home']).then(() => {
-          location.reload();
+         
         });
 
         setTimeout(() => {

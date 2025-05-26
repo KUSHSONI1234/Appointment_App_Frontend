@@ -25,9 +25,9 @@
       (mouseleave)="showDropdown = false"
     >
       <img
-        src="images/assets_frontend/upload_area.png"
+        src="assets\images\assets_frontend\upload_area.png"
         alt="Profile"
-        class="profile-img"
+        class="profile-img" *ngIf="isLoggedIn"
       />
       <div class="dropdown-content" [ngClass]="{ show: showDropdown }">
         <a routerLink="/my-profile">My Profile</a>
