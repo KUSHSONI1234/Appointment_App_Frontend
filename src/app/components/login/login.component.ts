@@ -9,8 +9,8 @@ import {
   HttpErrorResponse,
   HttpClientModule,
 } from '@angular/common/http';
-// import { environment } from '../../../environments/environment.prod';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../environments/environment.prod';
+// import { environment } from '../../../environments/environment';
 
 
 @Component({
