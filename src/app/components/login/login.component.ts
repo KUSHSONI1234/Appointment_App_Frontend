@@ -55,7 +55,7 @@ export class LoginComponent implements AfterViewInit {
     }
 
     // const apiUrl = 'http://localhost:5052/api/auth/login';
-    const apiUrl = `${environment.apiBaseUrl}/auth/login`;
+    const apiUrl = `${environment.apiUrl}/auth/login`;
 
 
     this.http.post(apiUrl, this.loginData).subscribe({

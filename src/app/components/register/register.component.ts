@@ -51,7 +51,7 @@ export class RegisterComponent implements AfterViewInit {
     }
 
     this.http
-      .post(`${environment.apiBaseUrl}/auth/register`, this.registerData).subscribe({
+      .post(`${environment.apiUrl}/auth/register`, this.registerData).subscribe({
         next: (res: any) => {
           this.showAlert = false;
           this.showSuccess = true;
