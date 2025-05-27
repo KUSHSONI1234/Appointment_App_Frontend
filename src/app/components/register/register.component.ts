@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { Route, Router, RouterLink } from '@angular/router';
 import { environment } from '../../../environments/environment';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,7 @@ import { environment } from '../../../environments/environment';
     CommonModule,
     ReactiveFormsModule,
     NavbarComponent,
-    RouterLink,
+    RouterLink, FooterComponent
   ],
 })
 export class RegisterComponent implements AfterViewInit {
@@ -51,7 +52,8 @@ export class RegisterComponent implements AfterViewInit {
     }
 
     this.http
-      .post(`${environment.apiUrl}/auth/register`, this.registerData).subscribe({
+      .post(`${environment.apiUrl}/auth/register`, this.registerData)
+      .subscribe({
         next: (res: any) => {
           this.showAlert = false;
           this.showSuccess = true;

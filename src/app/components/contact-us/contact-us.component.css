@@ -1,0 +1,41 @@
+.contact-section h2{
+    margin: 3rem 0;
+    text-align: center;
+    color: rgb(136, 134, 134);
+}
+
+.contact-section{
+    margin: 0 10%;
+}
+
+.contact-section h2 span{
+    color: black;
+    font-weight: 600;
+}
+
+.contact-left img{
+    width: 380px;
+    height: auto;
+}
+
+.contact-flex
+{
+    display: flex;
+    align-items: center;
+    /* background-color: antiquewhite; */
+    justify-content: center;
+    gap: 3rem;
+}
+
+.contact-right button{
+    padding: 15px 30px;
+    margin-top: 1rem;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.contact-right button:hover{
+    background-color: black;
+    color: white;
+}

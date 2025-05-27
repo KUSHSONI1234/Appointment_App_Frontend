@@ -9,9 +9,9 @@ import {
   HttpErrorResponse,
   HttpClientModule,
 } from '@angular/common/http';
-import { environment } from '../../../environments/environment.prod';
-// import { environment } from '../../../environments/environment';
-
+// import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-login',
@@ -24,7 +24,8 @@ import { environment } from '../../../environments/environment.prod';
     RouterLink,
     NavbarComponent,
     HttpClientModule,
-  ],
+    FooterComponent
+],
 })
 export class LoginComponent implements AfterViewInit {
   @ViewChild('fullNameInput') fullNameInput!: ElementRef;
@@ -56,9 +57,7 @@ export class LoginComponent implements AfterViewInit {
       return;
     }
 
-    // const apiUrl = 'http://localhost:5052/api/auth/login';
     const apiUrl = `${environment.apiUrl}/auth/login`;
-
 
     this.http.post(apiUrl, this.loginData).subscribe({
       next: (res: any) => {
@@ -66,11 +65,8 @@ export class LoginComponent implements AfterViewInit {
         this.showSuccess = true;
         this.showAlert = false;
 
-
         localStorage.setItem('token', res.token);
-        this.router.navigate(['/home']).then(() => {
-         
-        });
+        this.router.navigate(['/home']).then(() => {});
 
         setTimeout(() => {
           this.showSuccess = false;
@@ -86,7 +82,6 @@ export class LoginComponent implements AfterViewInit {
         }, 3000);
       },
     });
-
 
     this.loginData = {
       email: '',

@@ -1,0 +1,97 @@
+.about-section{
+    margin: 0 10%;
+}
+
+.about-section h2{
+    color: rgb(109, 107, 107);
+    text-align: center;
+    margin: 4rem 0 2rem;
+}
+.about-section h2 span{
+    color: black;
+}
+
+.about-flex{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    /* align-items: c; */
+}
+.about-flex .about-left img{
+    width: 380px;
+    height: auto;
+}
+
+.about-right{
+    width: 55%;
+    /* background-color: antiquewhite; */
+    text-align: justify;
+}
+
+.about-right p{
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    font-size: 15px;
+}
+
+.about-right h3{
+    margin-bottom: 1rem;
+}
+
+
+
+.why-choose-us {
+  padding: 60px 20px;
+  background: #fff;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.why-choose-us h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: #111;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card {
+  flex: 1 1 300px;
+  max-width: 350px;
+  border: 1px solid #eee;
+  padding: 25px;
+  text-align: left;
+  border-radius: 10px;
+  /* transition: all 0.3s ease-in-out; */
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: all 0.3s ease-in-out;
+}
+
+
+.card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  /* color: #111; */
+}
+
+.card p {
+  font-size: 14px;
+  /* color: #555; */
+  line-height: 1.6;
+}
+
+
+.card:hover{
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background-color: #505ed7;
+    color: white;
+}
