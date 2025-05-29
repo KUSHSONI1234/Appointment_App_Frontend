@@ -11,5 +11,33 @@ import { RouterLink } from '@angular/router';
   styleUrl: './my-profile.component.css'
 })
 export class MyProfileComponent {
+  fullName = '';
+  email = '';
+  phone = '0000000000';
+  address = 'Your address here';
+  gender = 'Not specified';
+  birthday = '';
 
+  editMode = false;
+
+  ngOnInit(): void {
+    this.fullName = localStorage.getItem('fullName') || '';
+    this.email = localStorage.getItem('email') || '';
+    // You can set others or fetch from API
+  }
+
+  toggleEdit(): void {
+    this.editMode = !this.editMode;
+
+    if (!this.editMode) {
+      console.log('Saving...', {
+        fullName: this.fullName,
+        email: this.email,
+        phone: this.phone,
+        address: this.address,
+        gender: this.gender,
+        birthday: this.birthday
+      });
+    }
+  }
 }

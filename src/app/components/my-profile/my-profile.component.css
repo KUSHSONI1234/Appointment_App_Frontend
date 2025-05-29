@@ -1,0 +1,27 @@
+.profile-container{
+    margin: 4rem 10% 0;
+}
+
+.profile-container img{
+    width: 150px;
+    height: auto;
+}
+
+.profile-container h1{
+    margin-top: 1rem;
+    border-bottom: 1px solid black;
+    width: 70%;
+}
+
+.profile-container h3{
+    font-size: 15px;
+    color: rgb(84, 82, 82);
+    /* font-weight: 500; */
+    margin: 1.5rem 0;
+    text-decoration: underline;
+}
+.profile-container span{
+    margin-left: 1rem;
+    color: #554bdb;
+    font-weight: 600;
+}

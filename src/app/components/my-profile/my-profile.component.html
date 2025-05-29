@@ -1,3 +1,35 @@
 <app-navbar></app-navbar>
 
-<img src="" alt="">
+<div class="profile-container">
+  <img src="assets/images/assets_frontend/upload_area.png" alt="">
+
+  <h1>
+    <input type="text" [(ngModel)]="fullName" [disabled]="!editMode" />
+  </h1>
+
+  <h3>CONTACT INFORMATION</h3>
+  <p style="font-weight: 600;margin-bottom: 1rem;">
+    Email id:
+    <input type="email" [(ngModel)]="email" [disabled]="!editMode" />
+  </p>
+  <p style="font-weight: 600;margin-bottom: 1rem;">
+    Phone No:
+    <input type="text" [(ngModel)]="phone" [disabled]="!editMode" />
+  </p>
+  <p style="font-weight: 600;margin-bottom: 1rem;">
+    Address:
+    <textarea type="text" [(ngModel)]="address" [disabled]="!editMode"></textarea>
+  </p>
+
+  <h3>BASIC INFORMATION</h3>
+  <p>
+    Gender:
+    <input type="text" [(ngModel)]="gender" [disabled]="!editMode" />
+  </p>
+  <p>
+    Birthday:
+    <input type="date" [(ngModel)]="birthday" [disabled]="!editMode" />
+  </p>
+
+  <button (click)="toggleEdit()">{{ editMode ? 'Save' : 'Edit' }}</button>
+</div>

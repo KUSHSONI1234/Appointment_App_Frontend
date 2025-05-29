@@ -11,7 +11,7 @@ import {
 } from '@angular/common/http';
 // import { environment } from '../../../environments/environment.prod';
 import { environment } from '../../../environments/environment';
-import { FooterComponent } from "../footer/footer.component";
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-login',
@@ -24,8 +24,8 @@ import { FooterComponent } from "../footer/footer.component";
     RouterLink,
     NavbarComponent,
     HttpClientModule,
-    FooterComponent
-],
+    FooterComponent,
+  ],
 })
 export class LoginComponent implements AfterViewInit {
   @ViewChild('fullNameInput') fullNameInput!: ElementRef;
@@ -66,6 +66,8 @@ export class LoginComponent implements AfterViewInit {
         this.showAlert = false;
 
         localStorage.setItem('token', res.token);
+        localStorage.setItem('fullName', res.fullName);
+        localStorage.setItem('email', res.email);
         this.router.navigate(['/home']).then(() => {});
 
         setTimeout(() => {
