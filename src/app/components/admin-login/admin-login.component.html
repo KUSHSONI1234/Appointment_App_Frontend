@@ -1,1 +1,50 @@
-<p>admin-login works!</p>
+<div class="container mt-4">
+  <h2>Admin <span>Login</span></h2>
+
+  <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm" novalidate>
+    <div class="alert-wrapper">
+      <div *ngIf="showAlert" class="custom-alert">{{ errorMessage }}</div>
+    </div>
+
+    <div class="alert-wrapper">
+      <div *ngIf="showSuccess" class="custom-alert success">
+        {{ successMessage }}
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        class="form-control"
+        [(ngModel)]="email"
+        #fullNameInput
+        #emailInput="ngModel"
+      />
+
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+        class="form-control"
+        [(ngModel)]="password"
+        #passwordInput="ngModel"
+      />
+  
+    </div>
+
+    <button type="submit" class="btn-submit">Login</button>
+
+    <p class="acc-login mt-3 text-center">
+      Doctor login? <a routerLink="/doctor-login">Click here</a>
+    </p>
+  </form>
+</div>
