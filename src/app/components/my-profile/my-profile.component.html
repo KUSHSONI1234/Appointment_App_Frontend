@@ -1,35 +1,78 @@
 <app-navbar></app-navbar>
 
-<div class="profile-container">
-  <img src="assets/images/assets_frontend/upload_area.png" alt="">
-
-  <h1>
-    <input type="text" [(ngModel)]="fullName" [disabled]="!editMode" />
-  </h1>
-
-  <h3>CONTACT INFORMATION</h3>
-  <p style="font-weight: 600;margin-bottom: 1rem;">
-    Email id:
-    <input type="email" [(ngModel)]="email" [disabled]="!editMode" />
-  </p>
-  <p style="font-weight: 600;margin-bottom: 1rem;">
-    Phone No:
-    <input type="text" [(ngModel)]="phone" [disabled]="!editMode" />
-  </p>
-  <p style="font-weight: 600;margin-bottom: 1rem;">
-    Address:
-    <textarea type="text" [(ngModel)]="address" [disabled]="!editMode"></textarea>
-  </p>
-
-  <h3>BASIC INFORMATION</h3>
-  <p>
-    Gender:
-    <input type="text" [(ngModel)]="gender" [disabled]="!editMode" />
-  </p>
-  <p>
-    Birthday:
-    <input type="date" [(ngModel)]="birthday" [disabled]="!editMode" />
-  </p>
-
-  <button (click)="toggleEdit()">{{ editMode ? 'Save' : 'Edit' }}</button>
+<div
+  *ngIf="alertMessage"
+  [ngClass]="{
+    'alert': true,
+    'alert-success': alertType === 'success',
+    'alert-danger': alertType === 'error'
+  }"
+  class="custom-alert"
+>
+  {{ alertMessage }}
 </div>
+
+
+
+<div class="profile-container">
+  <div class="card">
+    <img
+      src="assets/images/assets_frontend/upload_area.png"
+      alt="Profile Image"
+      class="profile-img"
+    />
+
+    <div class="info-group">
+      <label>Full Name</label>
+      <input type="text" [(ngModel)]="fullName" [disabled]="!editMode" />
+    </div>
+
+    <h3>CONTACT INFORMATION</h3>
+
+    <div class="info-group">
+      <label>Email</label>
+      <input type="email" [(ngModel)]="email" [disabled]="true" />
+    </div>
+
+    <div class="info-group">
+      <label>Phone No</label>
+      <input
+        type="text"
+        [(ngModel)]="phone"
+        [disabled]="!editMode"
+        placeholder="0000000000"
+      />
+    </div>
+
+    <div class="info-group">
+      <label>Address</label>
+      <textarea
+        [(ngModel)]="address"
+        [disabled]="!editMode"
+        placeholder="Your address here"
+      ></textarea>
+    </div>
+
+    <h3>BASIC INFORMATION</h3>
+
+    <div class="info-group">
+      <label>Gender</label>
+      <select [(ngModel)]="gender" [disabled]="!editMode">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Not Specified">Not Specified</option>
+      </select>
+    </div>
+
+    <div class="info-group">
+      <label>Birthday</label>
+      <input type="date" [(ngModel)]="birthday" [disabled]="!editMode" />
+    </div>
+
+    <button class="edit-btn" (click)="toggleEdit()">
+      {{ editMode ? "Save" : "Edit" }}
+    </button>
+  </div>
+</div>
+
+<app-footer></app-footer>

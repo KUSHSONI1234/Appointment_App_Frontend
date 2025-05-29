@@ -5,6 +5,8 @@ import { LoginComponent } from './components/login/login.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { DoctorLoginComponent } from './components/doctor-login/doctor-login.component';
 
 export const routes: Routes = [
     {path:'',component:HomeComponent,pathMatch:'full'},
@@ -23,5 +25,11 @@ export const routes: Routes = [
     },
     {
         path:'contact-us',component:ContactUsComponent
+    },
+    {
+        path:'admin-login',component:AdminLoginComponent
+    },
+    {
+        path:'doctor-login',component:DoctorLoginComponent
     }
 ];
