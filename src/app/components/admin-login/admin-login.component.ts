@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, NgForm } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -22,7 +22,7 @@ export class AdminLoginComponent implements AfterViewInit {
 
   @ViewChild('fullNameInput') fullNameInput!: ElementRef;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngAfterViewInit() {
     this.fullNameInput.nativeElement.focus();
@@ -38,26 +38,27 @@ export class AdminLoginComponent implements AfterViewInit {
 
     const payload = { email: this.email, password: this.password };
 
-    this.http.post<any>('http://localhost:5052/api/Admin/login', payload).subscribe({
-      next: (res) => {
-        this.successMessage = res.message;
-        this.showSuccess = true;
-        this.showAlert = false;
-        setTimeout(() => (this.showSuccess = false), 3000);
-        this.resetBtn();
-      },
-      error: (err) => {
-        this.errorMessage = err.error.message || 'Login failed';
-        this.showAlert = true;
-        this.showSuccess = false;
-        setTimeout(() => (this.showAlert = false), 3000);
-      },
-    });
+    this.http
+      .post<any>('http://localhost:5052/api/Admin/login', payload)
+      .subscribe({
+        next: (res) => {
+          this.successMessage = res.message;
+          this.showSuccess = true;
+          this.showAlert = false;
+          setTimeout(() => (this.showSuccess = false), 3000);
+          this.router.navigateByUrl('/admin-dashboard');
+          this.resetBtn();
+        },
+        error: (err) => {
+          this.errorMessage = err.error.message || 'Login failed';
+          this.showAlert = true;
+          this.showSuccess = false;
+          setTimeout(() => (this.showAlert = false), 3000);
+        },
+      });
   }
 
-  resetBtn()
-  {
-    this.email='',
-    this.password=''
+  resetBtn() {
+    (this.email = ''), (this.password = '');
   }
 }
