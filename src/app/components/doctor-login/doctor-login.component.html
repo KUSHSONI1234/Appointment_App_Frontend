@@ -1,10 +1,13 @@
 <div class="container mt-4">
   <h2>Doctor <span>Login</span></h2>
 
+  <!-- Alert Messages -->
+  <div class="alert-wrapper">
+    <div *ngIf="showAlert" class="custom-alert">{{ errorMessage }}</div>
+    <div *ngIf="showSuccess" class="custom-alert success">Login successful!</div>
+  </div>
+
   <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-
-    
-
     <div class="form-group mb-3">
       <label for="email">Email</label>
       <input
